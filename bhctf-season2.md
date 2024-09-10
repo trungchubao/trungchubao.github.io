@@ -15,12 +15,24 @@
 #### 2. "Gameboy Game"
 - Overview: a Gameboy ROM was given. We are asked to score more than 32767 points to get the flag.
 
-- Steps:
-    - Step 1: There are many Gameboy emulators that allows debugging the game. I used 
+- Solution
+    - There are many Gameboy emulators that allows debugging the game. I used
+ 
+- The flag is:
+
+  ![image](https://github.com/user-attachments/assets/5037b9af-5a4c-43ca-b877-da8e0e3116f7)
+
 
 
 #### 3. "Car game"
 - Overview: a game written in SDL2 framework was provided. There was instructions on how should we run the game on Ubuntu 22.04 and the necessary libraries. We need to score more than 1337 points to get the flag.
 
-- Steps:
-    - Step 1: I used GDB to debug the game and Ghidra to understand what 
+- Solution:
+    - I used GDB to debug the game and Ghidra to understand what
+ 
+- The flag is:
+
+  ![image](https://github.com/user-attachments/assets/8f0d9e7a-6fac-48ee-973f-d097f86d00bb)
+
+  ![image](https://github.com/user-attachments/assets/38cfbd9d-0cf2-4e92-b491-131e8d22ef2f)
+
