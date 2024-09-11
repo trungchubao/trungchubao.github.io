@@ -2,7 +2,7 @@
 
 ---
 
-#### 1. "Want a password"
+### 1. "Want a password"
 
 - Overview: A zip file was provided which includes a password-locked zip file and a password generating module. The flag is hidden in the password-locked zip file while the module contains a .exe file along with a DLL file. Running .exe file (with the .DLL file in the same folder) on a Windows machine produced a random password. As hinted by the challenge description, the random password is generated based on the current time and the password to open the locked zip file is the one generated between two specific times.
 
@@ -12,7 +12,7 @@
     - I came up with the idea to not touch .dll, but just modify the .exe file so that whenever I click "Gen Pass" button, it will generate passwords continously for a long-enough time. After that, I just need to adjust my local system time to the time mentioned in the description. Then clicking the button and get passwords generated. I did confirm that the mentioned passwords exist in the list.
     - After getting the list of passwords, I manually try one by one to open the locked .zip file (I can use Hydra or similar tools, but the small number of candidates didn't worth using the tools) and found the correct password.
 
-#### 2. "Gameboy Game"
+### 2. "Gameboy Game"
 - Overview: a Gameboy ROM was given. We are asked to score more than 32767 points to get the flag.
 
 - Solution
@@ -24,7 +24,7 @@
 
 
 
-#### 3. "Car game"
+### 3. "Car game"
 - Overview: a game written in SDL2 framework was provided. There was instructions on how should we run the game on Ubuntu 22.04 and the necessary libraries. We need to score more than 1337 points to get the flag.
 
 - Solution:
