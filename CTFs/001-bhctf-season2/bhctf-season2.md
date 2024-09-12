@@ -24,11 +24,51 @@
 - Overview: a Gameboy ROM was given. We are asked to score more than 32767 points to get the flag.
 
 - Solution
-    - There are many Gameboy emulators that allows debugging the game. I used
- 
-- The flag is:
+    - On a Kali machine, I installed wine, downloaded bgb. Run `wine bgb64.exe` to start the bgb debugger.
+    - Load the provided Gameboy ROM to bgb.
+      
+      <img width="1083" alt="image" src="https://github.com/user-attachments/assets/a7530415-20c0-44cb-8580-73ed18e15f9a">
 
-  ![image](https://github.com/user-attachments/assets/5037b9af-5a4c-43ca-b877-da8e0e3116f7)
+    - The game loaded. Open the "cheat searcher"
+      
+      <img width="1090" alt="image" src="https://github.com/user-attachments/assets/303155f1-8df7-4b70-9a5c-d52f0b93c4ec">
+
+    - The challenge asks us to score more than 32767, hence the score should be 16 bits. Set `search value type` to `16 bits`. Click on `Start` to search for all 16 bits values in the app memory.
+      
+      <img width="489" alt="image" src="https://github.com/user-attachments/assets/1665e89e-d668-48c6-8fed-2ee32a93b90e">
+
+    - Score 1 point or 2, then press start (Enter) button to view the score and pause the game.
+      
+      <img width="1093" alt="image" src="https://github.com/user-attachments/assets/5b13efde-3684-486d-bb4c-44a4c96e30ac">
+
+    - Open the cheat searcher again, set the target value as the score you earned above, and click `Search` to look for, among the list we got by the initial search, memory addresses of which value is the target value.
+      
+      <img width="489" alt="image" src="https://github.com/user-attachments/assets/a857d565-3f07-46e3-9a56-2a6fa8cf2050">
+
+    - The `known` shrinks down a little bit (in the case of the screenshot below, it is 257). Continue this process until the list remains unchanged.
+      
+      <img width="491" alt="image" src="https://github.com/user-attachments/assets/ed8b6659-0a37-4ab2-9fea-837dc9e93b34">
+
+    - The final result looks like this:
+      
+      <img width="485" alt="image" src="https://github.com/user-attachments/assets/373566e4-b6f6-461a-91a5-c8c8315a2366">
+
+    - After this, the goal is to modify the memory where the score is stored so that our score is almost 32767. You can do that by right clicking on the address you want to view, select `go here in debugger`.
+      
+      <img width="490" alt="image" src="https://github.com/user-attachments/assets/096ccbda-720a-4dec-b945-d215fda3d1fb">
+
+    - The value at `0xCB93` was the score at that time (2). The score turns out to be stored as a 16-bit signed integer at `0xCB93` and `0xCB94`
+      
+      <img width="730" alt="image" src="https://github.com/user-attachments/assets/459a7ee2-3cc0-49b4-95dd-bcbf6d108071">
+
+    - Right clicking on the address you want to modify, select `Modify code/data`:
+      
+      <img width="742" alt="image" src="https://github.com/user-attachments/assets/4ef203fd-1dea-4b6a-980f-dcfa0b0df638">
+
+    - Edit the memory such that `0xCB93 = ff` and `0xCB94 = 7f`. After that get back to the game, move the car to the arrow on the up left corner, and the flag appeared.
+      
+      <img width="1090" alt="image" src="https://github.com/user-attachments/assets/f2d75386-e4e2-48c4-a1a0-9436fedf524c">
+
 
 
 
