@@ -1,4 +1,4 @@
-``` As the captain of Team U-niverse, I participated to the Block Harbor x VicOne Automotive CTF Season 2 (2024). We couldn't make it to the final rounds. It was, however, a chance for us to learn new things. Personally, I was able to sharpen my reverse engineering skill a little bit. Here under I will place write-ups for the RE challenges that I solved. ```
+``` As the captain of Team U-niverse, I participated to the Block Harbor x VicOne Automotive CTF Season 2 (2024). We couldn't make it to the final rounds. It was, however, a chance for us to learn new things. Personally, I was able to sharpen my reverse engineering skill a little bit. Here under I will place write-ups for the RE challenges that I solved: "Want a password", "Gameboy Game" and "Cargame". There was another difficult RE challenge named "Power". I couldn't solve that challenge, but there is a good write-up for your reference: https://glatcher.ru/2024/09/09/BlockHarbor2024-Power ```
 
 ---
 
