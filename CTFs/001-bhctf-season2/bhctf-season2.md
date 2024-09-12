@@ -76,7 +76,63 @@
 - Overview: a game written in SDL2 framework was provided. There was instructions on how should we run the game on Ubuntu 22.04 and the necessary libraries. We need to score more than 1337 points to get the flag.
 
 - Solution:
-    - I used GDB to debug the game and Ghidra to understand what
+    - I heard after the CTF that we can solve the challenge using a cheat engine to hack the health. I didn't know about that, so I used GDB to debug, and Ghidra to understand the source code and identify the addresses I need to tamper with. It was probably way more tedious than using a cheat engine, but as a pay-off, I learned a little reverse engineering skills.
+    - I would skip the reversing steps as you can search elsewhere. The strategy is to modify the source code such that the health is not decreased however we play. After the modification, we just need to wait for less than 20 mins to achieve the necessary points to get the flag.
+    - I wrote a Python script that control GDB to achieve the above goal. Basically the script replaces the decreasing process at `0x403e6d` and `0x403d63` by a sequence of NOPs (0x90) instructions so that the process does nothing. After collecting enough points, the script reverses back the modifications, continue running the game and get flag.
+ 
+  ※ Only editing the score didn't work, as inside the game, it added a timestamp to estimate the playing time to detect cheating. The scoreboards, flags, etc. are stored on a server to which the game send requests.
+ 
+```
+    import gdb
+    import pyautogui
+    import time
+    import threading
+
+    global score
+
+    TIMEOUT = 1000
+
+    # connect to the local GDB process
+    gdb.execute("file cargame")
+    gdb.Breakpoint("*0x4030ae")
+
+    def waitUntilDone():
+        time.sleep(TIMEOUT)
+        gdb.Breakpoint("*0x403e6d")
+        gdb.Breakpoint("*0x403d63")
+
+    def bp_handler(event):
+        global score
+
+        if event.breakpoint.number == 1:
+            gdb.execute("set *(unsigned char*)0x403e6d = 0x90")
+            gdb.execute("set *(unsigned char*)0x403e6e = 0x90")
+            gdb.execute("set *(unsigned char*)0x403e6f = 0x90")
+
+            gdb.execute("set *(unsigned char*)0x403d63 = 0x90")
+            gdb.execute("set *(unsigned char*)0x403d64 = 0x90")
+            gdb.execute("set *(unsigned char*)0x403d65 = 0x90")
+
+            t1 = threading.Thread(target=waitUntilDone, args=())
+            t1.start()
+
+            gdb.execute("continue")
+        if event.breakpoint.number in (2,3):
+            gdb.execute("set *(unsigned char*)0x403e6d = 0x89")
+            gdb.execute("set *(unsigned char*)0x403e6e = 0x50")
+            gdb.execute("set *(unsigned char*)0x403e6f = 0x18")
+
+            gdb.execute("set *(unsigned char*)0x403d63 = 0x89")
+            gdb.execute("set *(unsigned char*)0x403d64 = 0x50")
+            gdb.execute("set *(unsigned char*)0x403d65 = 0x18")
+            gdb.execute("continue")
+
+    gdb.events.stop.connect(bp_handler)
+    gdb.execute("set logging on")
+    gdb.execute("set confirm off")
+
+    gdb.execute("run -u trung")
+```
  
 - The flag is:
 
