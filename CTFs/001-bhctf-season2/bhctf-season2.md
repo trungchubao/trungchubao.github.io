@@ -19,6 +19,10 @@
     - Save the changes and then set your local system time to `2024/06/27 11:37:00` for example. Please be careful with the timezone.
     - Start generating passwords until it ends.
     - After getting the list of passwords, I manually try one by one to open the locked .zip file (I can use Hydra or similar tools, but the small number of candidates didn't worth using the tools) and found the correct password.
+    - The flag is:
+ 
+      ![image](https://github.com/user-attachments/assets/e1816218-30bc-44b8-af9a-0547764a514f)
+
 
 ### 2. "Gameboy Game"
 - Overview: a Gameboy ROM was given. We are asked to score more than 32767 points to get the flag.
