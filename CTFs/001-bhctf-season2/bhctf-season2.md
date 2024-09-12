@@ -83,6 +83,7 @@
   ※ Only editing the score didn't work, as inside the game, it added a timestamp to estimate the playing time to detect cheating. The scoreboards, flags, etc. are stored on a server to which the game send requests.
  
 ```
+    # --------- crack.py ------------
     import gdb
     import pyautogui
     import time
@@ -133,6 +134,7 @@
 
     gdb.execute("run -u trung")
 ```
+The script is run by `gdb -x crack.py`.
  
 - The flag is:
 
