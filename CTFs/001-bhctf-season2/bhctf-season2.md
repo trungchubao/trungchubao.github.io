@@ -1,4 +1,4 @@
-``` As the captain of Team U-niverse, I participated to the Block Harbor x VicOne Automotive CTF Season 2 (2024). We couldn't make it to the final rounds. It was, however, a chance for us to learn new things. Personally, I was able to sharpen my reverse engineering skill a little bit. Here under I will place write-ups for the RE challenges that I solved: "Want a password", "Gameboy Game" and "Cargame". There was another difficult RE challenge named "Power". I couldn't solve that challenge, but there is a good write-up for your reference: https://glatcher.ru/2024/09/09/BlockHarbor2024-Power ```
+``` As the captain of Team U-niverse, I participated to the Block Harbor x VicOne Automotive CTF Season 2 (2024). We couldn't make it to the final rounds. It was, however, a chance for us to learn new things. Personally, I was able to sharpen my reverse engineering skill a little bit. Here under I will place write-ups for the RE challenges that I solved: "Want a password", "Gameboy Game" and "Cargame". As for write-ups of other challenges, please refer to the bottom of this page.```
 
 ---
 
@@ -146,3 +146,9 @@ The script is run by `gdb -x crack.py`.
 
   ![image](https://github.com/user-attachments/assets/38cfbd9d-0cf2-4e92-b491-131e8d22ef2f)
 
+
+Write-ups for other challenges:
+1. Challenge "Power": https://glatcher.ru/2024/09/09/BlockHarbor2024-Power
+2. Challenges "Scanning Plates", "Stego 1", "I know alot about cars", "Web RCE Anomaly", "What is the VIN?": https://github.com/OxT7723/CTFs/blob/main/BlockHarbor_CTF_Season2_2024/README.md
+3. Challenges "Walk in the park", "Can bus anomaly #1", "1 or 2?", "Lost in the echo", "ivi", "Siggy", "Stego 1": https://blog.hamayanhamayan.com/entry/2024/09/10/222143
+4. Challenges "VCAN", "Can bus anomaly #2", "DID Access", "What is the VIN?", "Steering Angle", "When were we driving?", "Radio", "Street Names", "Autosar E2E": https://laysakura.github.io/2024/09/09/automotive-ctf-2024-qual/
