@@ -1,3 +1,3 @@
 # To learn you need to forget, eventually what remains is the SUPER ZERO...
 
-- [CTFs](CTFs/CTFs.md)
+- [CTFs](CTFs/ctfs.md)
