@@ -2,3 +2,4 @@
 
 - [CTFs](CTFs/ctfs.md)
 - [Conferences](Conferences/conferences.md)
+- [Cybersecurity Certificates](Certificates/certificates.md)
